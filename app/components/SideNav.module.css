@@ -1,0 +1,27 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  /* position: fixed; */
+  z-index: 100;
+  /* right: 50%; */
+}
+
+.h1 {
+  /* text-align: right; */
+  /* z-index: 101; */
+  font-size: 90px;
+  line-height: 55px;
+  color: #3b3b3b;
+}
+.div {
+  font-size: 30px;
+  height: 50%;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: flex;
+  text-transform: uppercase;
+  align-items: end;
+  justify-content: space-around;
+  flex-direction: column;
+}
