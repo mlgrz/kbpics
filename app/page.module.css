@@ -94,6 +94,20 @@ a.secondary {
   border-color: var(--button-secondary-border);
 }
 
+.gallery {
+  column-count: 3;
+  column-gap: "16px";
+  width: "100%";
+}
+
+@media only screen and (max-width: 900px) {
+  .gallery {
+    column-count: 2;
+    column-gap: "16px";
+    width: "100%";
+  }
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {

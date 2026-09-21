@@ -19,14 +19,7 @@ export default function Home() {
   const images = shuffleArray(pictures);
   return (
     <>
-      <div
-        style={{
-          columnCount: 3,
-          columnGap: "16px",
-          width: "100%",
-          // marginTop: "100px",
-        }}
-      >
+      <div className={styles.gallery}>
         {images.map((picture) => (
           <div
             key={picture.id}
