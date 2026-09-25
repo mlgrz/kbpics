@@ -81,8 +81,8 @@ export const pictures: GalleryItem[] = [
   },
   {
     cover: {
-      src: "/photos/moa_1.jpg",
-      id: "moa_1",
+      src: "/photos/moa_2.jpg",
+      id: "moa_2",
       title: "moa",
       desc: "got late to tree planting for this one",
       date: "Sept 12, 2026",
@@ -90,7 +90,7 @@ export const pictures: GalleryItem[] = [
       camera: "Olympus OM-D E-M5",
       lens: "Kit",
     },
-    photos: ["/photos/moa_2.jpg"],
+    photos: ["/photos/moa_1.jpg"],
   },
 
   {
