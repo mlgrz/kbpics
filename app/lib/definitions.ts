@@ -15,3 +15,8 @@ export type PhotoMetaData = {
   camera: Cameras;
   lens?: string;
 };
+
+export type GalleryItem = {
+  cover: PhotoMetaData;
+  photos?: string[];
+};

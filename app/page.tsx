@@ -4,32 +4,27 @@ import { pictures } from "./lib/data";
 import { PhotoMetaData } from "./lib/definitions";
 import Head from "next/head";
 
-function shuffleArray(array: PhotoMetaData[]) {
-  for (let i = array.length - 1; i > 0; i--) {
-    // Pick a random index from 0 to i
-    const j = Math.floor(Math.random() * (i + 1));
-
-    // Swap elements using array destructuring
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
 export default function Home() {
-  const images = shuffleArray(pictures);
   return (
     <>
       <div className={styles.gallery}>
-        {images.map((picture) => (
+        {pictures.map((picture) => (
           <div
-            key={picture.id}
+            className={
+              picture.photos
+                ? `${styles.album}  ${styles.galleryElement}`
+                : styles.galleryElement
+            }
+            key={picture.cover.id}
             style={{
               breakInside: "avoid",
-              marginBottom: "16px",
+              marginBottom: "70px",
+              position: "relative",
+              height: "100%",
             }}
           >
             <Image
-              src={picture.src}
+              src={picture.cover.src}
               alt="test"
               width={1000}
               height={1000}
@@ -37,9 +32,40 @@ export default function Home() {
                 width: "100%",
                 height: "auto",
                 display: "block",
-                boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.6)",
+                // boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.6)",
+                zIndex: 100,
+                position: "relative",
               }}
             />
+            {picture.photos && picture.photos.length > 0 ? (
+              picture.photos.map((url, i) => (
+                <Image
+                  key={url}
+                  src={url}
+                  alt="test"
+                  width={1000}
+                  height={1000}
+                  className={styles.albumPhoto}
+                  style={
+                    {
+                      width: `${99 - i * 5}%`,
+                      height: `${90 - i * 10}%`,
+                      display: "block",
+                      margin: "auto",
+                      // boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.6)",
+                      "--i": i + 1,
+                      zIndex: 99 - i,
+                      position: "absolute",
+                      inset: 0,
+                      top: 0,
+                      // left: 100,
+                    } as React.CSSProperties
+                  }
+                />
+              ))
+            ) : (
+              <></>
+            )}
           </div>
         ))}
       </div>
