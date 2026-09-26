@@ -119,4 +119,77 @@ export const pictures: GalleryItem[] = [
       lens: "Kit",
     },
   },
+
+   {
+    cover: {
+      src: "/photos/bamboo_3.jpg",
+      id: "bamboo_3",
+      title: "Bamboo",
+      desc: "bamboo in my office's year end party",
+      date: "Sept 12, 2026",
+      category: "Vehicles",
+      camera: "Olympus OM-D E-M5",
+      lens: "Kit",
+    },
+    photos: [
+      "/photos/bamboo_1.jpg", 
+      "/photos/bamboo_2.jpg",
+      "/photos/bamboo_4.jpg",
+      "/photos/bamboo_5.jpg",
+      "/photos/bamboo_6.jpg",
+      "/photos/bamboo_7.jpg",
+    ],
+  },
+
+   {
+    cover: {
+      src: "/photos/acienda_1.jpg",
+      id: "acienda_1",
+      title: "Acienda",
+      desc: "first day of 2026",
+      date: "Sept 12, 2026",
+      category: "Vehicles",
+      camera: "Olympus OM-D E-M5",
+      lens: "Kit",
+    },
+    photos: [
+      "/photos/acienda_3.jpg", 
+      "/photos/acienda_2.jpg",
+      "/photos/acienda_4.jpg",
+      "/photos/acienda_5.jpg",
+      "/photos/acienda_6.jpg",
+      "/photos/acienda_7.jpg",
+    ],
+  },
+
+  {
+    cover: {
+      src: "/photos/cafe_1.jpg",
+      id: "cafe_1",
+      title: "Cafe",
+      desc: "first day of 2026",
+      date: "Sept 12, 2026",
+      category: "Vehicles",
+      camera: "Olympus OM-D E-M5",
+      lens: "Kit",
+    },
+    photos: [
+      "/photos/cafe3.jpg", 
+      "/photos/cafe2.jpg",
+      "/photos/cafe4.jpg",
+    ],
+  },
+
+  {
+    cover: {
+      src: "/photos/plane.jpg",
+      id: "plane",
+      title: "Airplane",
+      desc: "first day of 2026",
+      date: "Sept 12, 2026",
+      category: "Vehicles",
+      camera: "Olympus OM-D E-M5",
+      lens: "Kit",
+    },
+  },
 ];
