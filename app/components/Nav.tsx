@@ -4,7 +4,7 @@ export default function SideNav() {
   return (
     <nav style={{ display: "flex", justifyContent: "center", zIndex: "100" }}>
       <Link href={"/"}>
-        <h1 style={{ textAlign: "right" }}>
+        <h1 style={{ textAlign: "right", lineHeight: "99%" }}>
           Karl
           <br />
           Benedict
