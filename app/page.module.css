@@ -1,24 +1,35 @@
 .gallery {
   column-count: 3;
   column-gap: 70px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.albumPhoto {
+.albumPhoto,
+.galleryElement,
+.cover,
+.photoInfo {
   transition:
     transform 1s cubic-bezier(0.25, 1, 0.5, 1),
     filter 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.photoInfo {
+  filter: opacity(0);
+}
 .galleryElement:hover {
+  transition: filter 1s cubic-bezier(0.25, 1, 0.5, 1);
   cursor: pointer;
 }
 
+.galleryElement:hover .photoInfo {
+  filter: opacity(1);
+  transition: filter 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.galleryElement:hover .cover {
+  filter: brightness(70%);
+}
+
 .album:hover .albumPhoto {
-  transform: translateY(max(calc(var(--i) * -15%), -90px));
-  /* filter: blur(5px); */
+  transform: translateY(max(calc(var(--i) * -15%), -70px));
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 

@@ -42,7 +42,7 @@ export const pictures: GalleryItem[] = [
     cover: {
       src: "/photos/edsa_1.jpg",
       id: "edsa",
-      title: "",
+      title: "Edsa Freeway",
       desc: "looks real nice on slow shutter",
       date: "Sept 12, 2026",
       category: "Vehicles",
@@ -111,7 +111,7 @@ export const pictures: GalleryItem[] = [
     cover: {
       src: "/photos/worm_1.png",
       id: "worm_1",
-      title: "",
+      title: "Worm",
       desc: "got late to tree planting for this one",
       date: "Sept 12, 2026",
       category: "Vehicles",
