@@ -32,9 +32,20 @@ export default function Home() {
                   inset: 10,
                   zIndex: 110,
                   color: "whitesmoke",
+                  // display: "flex",
+                  justifyContent: "space-between",
                 }}
               >
                 <h3>{picture.cover.title}</h3>
+                <p
+                  style={{
+                    fontWeight: "normal",
+                    fontFamily: "fangsong",
+                    // color: "grey",
+                  }}
+                >
+                  {picture.cover.date}
+                </p>
               </div>
               <Image
                 src={picture.cover.src}

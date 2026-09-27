@@ -12,6 +12,10 @@
     filter 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.galleryElement {
+  box-shadow: 0px 0px 10px 1px;
+}
+
 .photoInfo {
   filter: opacity(0);
 }
