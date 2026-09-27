@@ -188,4 +188,22 @@ export const pictures: GalleryItem[] = [
       lens: "Kit",
     },
   },
+
+  
+  {
+    cover: {
+      src: "/photos/croc_2.jpg",
+      id: "croc_2",
+      title: "Crocodile",
+      desc: "first day of 2026",
+      date: "Sept 12, 2026",
+      category: "Vehicles",
+      camera: "Olympus OM-D E-M5",
+      lens: "Kit",
+    },
+     photos: [
+      "/photos/croc_1.jpg", 
+      "/photos/croc_2.jpg",
+    ],
+  },
 ];
