@@ -120,7 +120,7 @@ export const pictures: GalleryItem[] = [
     },
   },
 
-   {
+  {
     cover: {
       src: "/photos/bamboo_3.jpg",
       id: "bamboo_3",
@@ -132,7 +132,7 @@ export const pictures: GalleryItem[] = [
       lens: "Kit",
     },
     photos: [
-      "/photos/bamboo_1.jpg", 
+      "/photos/bamboo_1.jpg",
       "/photos/bamboo_2.jpg",
       "/photos/bamboo_4.jpg",
       "/photos/bamboo_5.jpg",
@@ -141,7 +141,7 @@ export const pictures: GalleryItem[] = [
     ],
   },
 
-   {
+  {
     cover: {
       src: "/photos/acienda_1.jpg",
       id: "acienda_1",
@@ -153,7 +153,7 @@ export const pictures: GalleryItem[] = [
       lens: "Kit",
     },
     photos: [
-      "/photos/acienda_3.jpg", 
+      "/photos/acienda_3.jpg",
       "/photos/acienda_2.jpg",
       "/photos/acienda_4.jpg",
       "/photos/acienda_5.jpg",
@@ -173,16 +173,12 @@ export const pictures: GalleryItem[] = [
       camera: "Olympus OM-D E-M5",
       lens: "Kit",
     },
-    photos: [
-      "/photos/cafe3.jpg", 
-      "/photos/cafe2.jpg",
-      "/photos/cafe4.jpg",
-    ],
+    photos: ["/photos/cafe_3.jpg", "/photos/cafe_2.jpg", "/photos/cafe_4.jpg"],
   },
 
   {
     cover: {
-      src: "/photos/plane.jpg",
+      src: "/photos/plane_1.jpg",
       id: "plane",
       title: "Airplane",
       desc: "first day of 2026",
