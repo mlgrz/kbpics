@@ -7,17 +7,20 @@ import { GalleryItem } from "./lib/definitions";
 import { useState } from "react";
 
 export default function Home() {
-  const [lightBox, setLightBox] = useState("");
+  const [selectedImage, setSelectedImage] = useState("");
 
-  console.log(lightBox);
+  console.log(selectedImage);
   return (
     <>
-      {lightBox ? (
+      {selectedImage ? (
         <div
+          onClick={() => {
+            setSelectedImage("");
+          }}
           style={{
             width: "100%",
             height: "100%",
-            backgroundColor: "#0000009f",
+            backgroundColor: "#faf9f9db",
             display: "flex",
             position: "fixed",
             top: "50%" /* 2. Moves top edge to the middle */,
@@ -30,7 +33,7 @@ export default function Home() {
           }}
         >
           <button
-            onClick={() => setLightBox("")}
+            onClick={() => setSelectedImage("")}
             style={{
               position: "absolute",
               zIndex: 300,
@@ -41,16 +44,22 @@ export default function Home() {
             X
           </button>
           <Image
-            src={lightBox}
+            onClick={(e) => e.stopPropagation()}
+            src={selectedImage}
             alt="test"
-            width={700}
-            height={700}
+            width={800}
+            height={800}
             style={{
+              // 1. Establish the desired default size
+              // 1. Tell the container to grow, up to these exact limits
+              maxWidth: "70vw",
+              maxHeight: "80vh",
               width: "auto",
-              height: "80vh",
+              height: "auto",
               display: "block",
               // boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.6)",
               // position: "relative",
+              backgroundColor: "#f0f0f0",
             }}
           ></Image>
         </div>
@@ -64,7 +73,7 @@ export default function Home() {
                 : styles.galleryElement
             }
             onClick={() => {
-              setLightBox(`${picture.cover.src}`);
+              setSelectedImage(`${picture.cover.src}`);
             }}
             key={picture.cover.id}
             style={{
