@@ -200,6 +200,6 @@ export const pictures: GalleryItem[] = [
       camera: "Olympus OM-D E-M5",
       lens: "Kit",
     },
-    photos: ["/photos/croc_1.jpg", "/photos/croc_2.jpg"],
+    photos: ["/photos/croc_1.jpg", "/photos/croc_3.jpg"],
   },
 ];

@@ -7,21 +7,28 @@ import { GalleryItem } from "./lib/definitions";
 import { useState } from "react";
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const [lightBoxCover, setLightBoxCover] = useState<number | null>(null);
 
   console.log(selectedImage);
+  console.log(`lightbox Cover: ${lightBoxCover}`);
+  if (lightBoxCover !== null && lightBoxCover < 0) {
+    setLightBoxCover(null);
+  }
   return (
     <>
       {selectedImage ? (
         <div
           onClick={() => {
-            setSelectedImage("");
+            setLightBoxCover(null);
+            setSelectedImage(null);
           }}
           style={{
             width: "100%",
             height: "100%",
             backgroundColor: "#faf9f9db",
             display: "flex",
+            flexDirection: "column",
             position: "fixed",
             top: "50%" /* 2. Moves top edge to the middle */,
             left: " 50%" /* 3. Moves left edge to the middle */,
@@ -33,7 +40,7 @@ export default function Home() {
           }}
         >
           <button
-            onClick={() => setSelectedImage("")}
+            onClick={() => setSelectedImage(null)}
             style={{
               position: "absolute",
               zIndex: 300,
@@ -45,23 +52,57 @@ export default function Home() {
           </button>
           <Image
             onClick={(e) => e.stopPropagation()}
-            src={selectedImage}
+            src={
+              !selectedImage.photos || lightBoxCover == null
+                ? selectedImage.cover.src
+                : selectedImage.photos[lightBoxCover]
+            }
             alt="test"
             width={800}
             height={800}
             style={{
-              // 1. Establish the desired default size
-              // 1. Tell the container to grow, up to these exact limits
               maxWidth: "70vw",
               maxHeight: "80vh",
               width: "auto",
               height: "auto",
               display: "block",
-              // boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.6)",
-              // position: "relative",
               backgroundColor: "#f0f0f0",
             }}
           ></Image>
+          {selectedImage.photos ? (
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                marginTop: "10px",
+              }}
+            >
+              <button
+                disabled={lightBoxCover == null}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (lightBoxCover != null) {
+                    setLightBoxCover(lightBoxCover - 1);
+                  }
+                }}
+              >
+                prev
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (lightBoxCover == null) {
+                    setLightBoxCover(0);
+                  } else {
+                    setLightBoxCover(lightBoxCover + 1);
+                  }
+                }}
+                disabled={lightBoxCover! + 1 == selectedImage.photos.length}
+              >
+                next
+              </button>
+            </div>
+          ) : null}
         </div>
       ) : null}
       <div className={styles.gallery}>
@@ -73,7 +114,7 @@ export default function Home() {
                 : styles.galleryElement
             }
             onClick={() => {
-              setSelectedImage(`${picture.cover.src}`);
+              setSelectedImage(picture);
             }}
             key={picture.cover.id}
             style={{
@@ -113,7 +154,6 @@ export default function Home() {
                 width: "100%",
                 height: "auto",
                 display: "block",
-                // boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.6)",
                 zIndex: 100,
                 position: "relative",
               }}
