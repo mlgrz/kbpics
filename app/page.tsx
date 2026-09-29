@@ -15,12 +15,53 @@ export default function Home() {
   if (lightBoxCover !== null && lightBoxCover < 0) {
     setLightBoxCover(null);
   }
+
+  // WTF I CANT GET THIS TO WORK
+
+  // if (typeof window !== "undefined") {
+  //   window.addEventListener("keydown", (e) => {
+  //     if (e.key == "Escape") {
+  //       setSelectedImage(null);
+  //     } else if (
+  //       e.key == "ArrowRight" &&
+  //       selectedImage !== null &&
+  //       selectedImage.photos !== null &&
+  //       selectedImage.photos !== undefined
+  //     ) {
+  //       if (lightBoxCover == null) {
+  //         setLightBoxCover(0);
+  //       } else {
+  //         if (lightBoxCover === selectedImage.photos.length - 1) {
+  //           return;
+  //         }
+  //         setLightBoxCover(lightBoxCover + 1);
+  //       }
+  //     } else if (
+  //       e.key === "ArrowLeft" &&
+  //       selectedImage !== null &&
+  //       selectedImage.photos !== null &&
+  //       selectedImage.photos !== undefined
+  //     ) {
+  //       if (
+  //         lightBoxCover !== null &&
+  //         lightBoxCover !== undefined &&
+  //         lightBoxCover >= 0
+  //       ) {
+  //         setLightBoxCover(lightBoxCover - 1);
+  //       } else if (lightBoxCover === 0) {
+  //         return;
+  //       } else {
+  //         e.preventDefault();
+  //       }
+  //     }
+  //   });
+  // }
+
   return (
     <>
       {selectedImage ? (
         <div
           onClick={() => {
-            setLightBoxCover(null);
             setSelectedImage(null);
           }}
           style={{
@@ -45,7 +86,7 @@ export default function Home() {
               position: "absolute",
               zIndex: 300,
               top: 20,
-              left: 40,
+              right: 40,
             }}
           >
             X
@@ -97,7 +138,7 @@ export default function Home() {
                     setLightBoxCover(lightBoxCover + 1);
                   }
                 }}
-                disabled={lightBoxCover! + 1 == selectedImage.photos.length}
+                disabled={lightBoxCover == selectedImage.photos.length}
               >
                 next
               </button>
@@ -115,6 +156,7 @@ export default function Home() {
             }
             onClick={() => {
               setSelectedImage(picture);
+              setLightBoxCover(null);
             }}
             key={picture.cover.id}
             style={{
