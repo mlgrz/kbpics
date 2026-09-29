@@ -18,44 +18,13 @@ export default function Home() {
 
   // WTF I CANT GET THIS TO WORK
 
-  // if (typeof window !== "undefined") {
-  //   window.addEventListener("keydown", (e) => {
-  //     if (e.key == "Escape") {
-  //       setSelectedImage(null);
-  //     } else if (
-  //       e.key == "ArrowRight" &&
-  //       selectedImage !== null &&
-  //       selectedImage.photos !== null &&
-  //       selectedImage.photos !== undefined
-  //     ) {
-  //       if (lightBoxCover == null) {
-  //         setLightBoxCover(0);
-  //       } else {
-  //         if (lightBoxCover === selectedImage.photos.length - 1) {
-  //           return;
-  //         }
-  //         setLightBoxCover(lightBoxCover + 1);
-  //       }
-  //     } else if (
-  //       e.key === "ArrowLeft" &&
-  //       selectedImage !== null &&
-  //       selectedImage.photos !== null &&
-  //       selectedImage.photos !== undefined
-  //     ) {
-  //       if (
-  //         lightBoxCover !== null &&
-  //         lightBoxCover !== undefined &&
-  //         lightBoxCover >= 0
-  //       ) {
-  //         setLightBoxCover(lightBoxCover - 1);
-  //       } else if (lightBoxCover === 0) {
-  //         return;
-  //       } else {
-  //         e.preventDefault();
-  //       }
-  //     }
-  //   });
-  // }
+  if (typeof window !== "undefined") {
+    window.addEventListener("keydown", (e) => {
+      if (e.key == "Escape") {
+        setSelectedImage(null);
+      }
+    });
+  }
 
   return (
     <>
@@ -138,7 +107,7 @@ export default function Home() {
                     setLightBoxCover(lightBoxCover + 1);
                   }
                 }}
-                disabled={lightBoxCover == selectedImage.photos.length}
+                disabled={lightBoxCover == selectedImage.photos.length - 1}
               >
                 next
               </button>
